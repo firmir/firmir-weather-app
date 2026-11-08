@@ -1,0 +1,33 @@
+{
+  "language": "en",
+  "strings": {
+    "app-title": "firmir-weather",
+    "pick-city": "pick a city",
+    "loading": "loading...",
+    "switch-lang": "RU",
+    "status-offline": "offline",
+    "status-timeout": "request timed out",
+    "status-bad-reply": "bad server reply",
+    "temp-format": "%1 °C",
+    "details-format": "%1, wind %2 m/s",
+    "city-moscow": "Moscow",
+    "city-london": "London",
+    "city-tokyo": "Tokyo",
+    "city-new-york": "New York",
+    "city-yakutsk": "Yakutsk",
+    "wmo-clear-sky": "clear sky",
+    "wmo-mainly-clear": "mainly clear",
+    "wmo-partly-cloudy": "partly cloudy",
+    "wmo-overcast": "overcast",
+    "wmo-fog": "fog",
+    "wmo-drizzle": "drizzle",
+    "wmo-rain": "rain",
+    "wmo-freezing-rain": "freezing rain",
+    "wmo-snow": "snow",
+    "wmo-rain-showers": "rain showers",
+    "wmo-snow-showers": "snow showers",
+    "wmo-thunderstorm": "thunderstorm",
+    "wmo-thunderstorm-hail": "thunderstorm with hail",
+    "wmo-unknown": "unknown"
+  }
+}

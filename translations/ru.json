@@ -1,0 +1,33 @@
+{
+  "language": "ru",
+  "strings": {
+    "app-title": "firmir-weather — погода",
+    "pick-city": "выберите город",
+    "loading": "загрузка...",
+    "switch-lang": "EN",
+    "status-offline": "нет сети",
+    "status-timeout": "превышено время ожидания",
+    "status-bad-reply": "некорректный ответ сервера",
+    "temp-format": "%1 °C",
+    "details-format": "%1, ветер %2 м/с",
+    "city-moscow": "Москва",
+    "city-london": "Лондон",
+    "city-tokyo": "Токио",
+    "city-new-york": "Нью-Йорк",
+    "city-yakutsk": "Якутск",
+    "wmo-clear-sky": "ясно",
+    "wmo-mainly-clear": "преимущественно ясно",
+    "wmo-partly-cloudy": "переменная облачность",
+    "wmo-overcast": "пасмурно",
+    "wmo-fog": "туман",
+    "wmo-drizzle": "морось",
+    "wmo-rain": "дождь",
+    "wmo-freezing-rain": "ледяной дождь",
+    "wmo-snow": "снег",
+    "wmo-rain-showers": "ливневый дождь",
+    "wmo-snow-showers": "ливневый снег",
+    "wmo-thunderstorm": "гроза",
+    "wmo-thunderstorm-hail": "гроза с градом",
+    "wmo-unknown": "нет данных"
+  }
+}

@@ -1,0 +1,141 @@
+// firmir-weather UI: the whole window is declared in Firml and compiled to
+// C++ by firmlc at build time. The application logic lives in WeatherApp
+// (WeatherApp.cpp); the labels bind to its dynamic properties, the city
+// buttons call its selectCity() method.
+#include <firmir/items/Window.hpp>
+#include <firmir/items/Rectangle.hpp>
+#include <firmir/items/Text.hpp>
+#include <firmir/items/Button.hpp>
+#include <firmir/items/Column.hpp>
+#include <firmir/items/Repeater.hpp>
+#include <firmir/items/ListModel.hpp>
+#include <firmir/items/ListElement.hpp>
+#include "WeatherApp.hpp"
+
+Firmir.Gui.Window {
+    id: root
+    title: trId("app-title")
+    width: 560
+    height: 360
+
+    WeatherApp {
+        id: weather
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        color: "#1B2430"
+    }
+
+    // City buttons on the left. The labels are translation ids so the
+    // buttons follow the active language (city-moscow -> "Москва" in ru).
+    ListModel {
+        id: cities
+        ListElement { label: "city-moscow" }
+        ListElement { label: "city-london" }
+        ListElement { label: "city-tokyo" }
+        ListElement { label: "city-new-york" }
+        ListElement { label: "city-yakutsk" }
+    }
+
+    Column {
+        x: 12
+        y: 12
+        spacing: 8
+
+        Repeater {
+            model: cities
+            Button {
+                width: 130
+                height: 36
+                text: trId(model.label)
+                onClicked: weather.selectCity(index)
+            }
+        }
+    }
+
+    Text {
+        x: 160
+        y: 16
+        fontSize: 22
+        color: "#FFFFFF"
+        text: weather.cityName
+    }
+    Text {
+        x: 160
+        y: 48
+        fontSize: 40
+        color: "#FFC860"
+        text: weather.tempText
+    }
+    Text {
+        x: 160
+        y: 104
+        fontSize: 16
+        color: "#C8D4E0"
+        text: weather.detailsText
+    }
+    Text {
+        x: 160
+        y: 150
+        fontSize: 13
+        color: "#8090A0"
+        text: weather.statusText
+    }
+
+
+    // Window controls.
+    Button {
+        id: closeButton
+        text: "X"
+        width: 32
+        height: 32
+        anchors {
+            right: parent.right
+            top: parent.top
+            rightMargin: 8
+            topMargin: 8
+        }
+        onClicked: App.close()
+    }
+    Button {
+        id: maxButton
+        text: "[]"
+        width: 32
+        height: 32
+        anchors {
+            right: closeButton.left
+            top: parent.top
+            rightMargin: 4
+            topMargin: 8
+        }
+        onClicked: App.toggleMaximized()
+    }
+    // Language switch (toggles between the loaded translations/en.json and
+    // translations/ru.json; every trId() text updates on the spot).
+    Button {
+        id: langButton
+        text: trId("switch-lang")
+        width: 52
+        height: 32
+        anchors {
+            right: maxButton.left
+            top: parent.top
+            rightMargin: 4
+            topMargin: 8
+        }
+        onClicked: weather.switchLanguage()
+    }
+    Button {
+        text: "_"
+        width: 32
+        height: 32
+        anchors {
+            right: langButton.left
+            top: parent.top
+            rightMargin: 4
+            topMargin: 8
+        }
+        onClicked: App.showMinimized()
+    }
+}
